@@ -1,5 +1,5 @@
-const YupTechnology = new Company(
-  "Yup Technology LLC",
+const Anonim = new Company(
+  " Anonim LLC",
   "Azerbaijan",
   "123456789"
 );
@@ -14,11 +14,11 @@ onload = () => {
 const ViewData = () => {
   document.getElementsByClassName(
     "title"
-  )[0].innerHTML = `${YupTechnology.name} - (${YupTechnology.branch})`;
+  )[0].innerHTML = `${Anonim.name} - (${Anonim.branch})`;
 };
 
 const ViewTable = () => {
-  const emp = YupTechnology.viewEmp;
+  const emp = Anonim.viewEmp;
   let data = `
     <tr>
         <th>S/N</th>
@@ -54,7 +54,7 @@ AddDataBtn.addEventListener("click", function () {
 
   if (name.length >= 5 && position.length >= 2 && salary >= 250) {
     error.style.display = "none";
-    YupTechnology.addEmp(name, position, salary);
+    Anonim.addEmp(name, position, salary);
     $("#addEmp").modal("hide");
     ViewTable();
   } else {
@@ -71,7 +71,7 @@ const delEmp = (id) => {
     dangerMode: true,
   }).then((willDelete) => {
     if (willDelete) {
-      YupTechnology.deleteEmp(id);
+      Anonim.deleteEmp(id);
       ViewTable();
 
       swal("Əməliyyat uğurla başa çatdı!", {
@@ -84,7 +84,7 @@ const delEmp = (id) => {
 };
 
 const editView = (id) => {
-  const data = YupTechnology.editView(id);
+  const data = Anonim.editView(id);
 
   document.getElementById("edit-user-name").value = data.name;
   document.getElementById("edit-user-position").value = data.position;
@@ -103,7 +103,7 @@ EditDataBtn.addEventListener("click", function () {
 
   if (name.length >= 5 && position.length >= 2 && salary >= 250) {
     error.style.display = "none";
-    YupTechnology.updateEmp(id,name, position, salary);
+    Anonim.updateEmp(id,name, position, salary);
     $("#editEmp").modal("hide");
     ViewTable();
     swal({
